@@ -1,0 +1,39 @@
+// Juan Jose Yat Monroy 7691-21-6553
+// declaracion de mis tiendas
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+using namespace std;
+// para poder crear mis funciones y variables
+int main()
+{
+//empezar a creae el archiovo de texto e introducir texto dentro del mismo
+	ofstream archivo_salida("entrada.txt");
+//creacion de mis variables
+string mensaje;
+
+ //para poder introducir una palabra
+	cout<<"Ingrese mesaje:"<<endl;
+	cin >> mensaje;
+ //estas variables determinan si el texto que he ingresado se puede leer al derecho y al revez
+	size_t longitud = mensaje.length()-1;
+	size_t i=0;
+	bool esPalindromo = true;
+ //derivado de la palabra que se ingreso, dira si cumple con la condicion o no
+	for(i=0 ; i<mensaje.length()/2 && esPalindromo ;i++) {
+ 
+		if(mensaje[i]!=mensaje[longitud-i]){
+			esPalindromo = false;
+		}
+ 
+	}
+
+    cout<<((true == esPalindromo) ? "es palíndromo" : "no es palíndromo")<<endl;
+
+                        
+//doy salida a mi archivo para que se guarde con lo que he puesto 
+archivo_salida << mensaje << endl;
+archivo_salida.close();                    
+return 0;
+
+}
